@@ -5,6 +5,19 @@
 #include <errno.h>
 #include <unistd.h>
 
+int count_pipe(charr ** args, int argc)
+{
+	int count=0;
+	for(int i = 0; i < argc; i++)
+	{
+		if(args[i]=="|")
+		{
+			count+=1;
+		}
+	}
+	return count;
+
+}
 int shell_execute(char ** args, int argc)
 {
 	int child_pid, wait_return, status;
